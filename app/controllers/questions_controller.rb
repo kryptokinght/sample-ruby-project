@@ -4,6 +4,11 @@ class QuestionsController < ApplicationController
         redirect_to root_path
     end
 
+    def show
+        @question = Question.find(params[:id])
+        @answers = @question.answers.order(created_at: :desc)
+    end
+
     private
 
     def question_params

@@ -1,6 +1,5 @@
 class Question < ApplicationRecord
 
-    def gravatar
-        "http://gravatar.com/avatar/#{Digest::MD5.hexdigest(email)}?d=identicon&r=PG"
-    end
+    include HasGravatar
+    has_many :answers
 end

@@ -8,15 +8,16 @@
       </button>
     </div>
     <%= form_for :question, url: '/answers', html: {class: 'form-horizontal'} do %>
+      <input type="hidden" name="answer[question_id]" value="<%= @question.id %>" >
       <div class="modal-body">
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
-            <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+            <input type="email" name="answer[email]" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
           </div>
           <div class="form-group">
             <label for="inputAnswer">Answer</label>
             <div>
-              <textarea name="body" class="form-control" id="inputAnswer" placeholder="Write an answer..." required></textarea>
+              <textarea name="answer[body]" class="form-control" id="inputAnswer" placeholder="Write an answer..." required></textarea>
             </div>
           </div>
           <button type="submit" class="btn btn-primary">Submit</button> 
