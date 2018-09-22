@@ -3,19 +3,24 @@
 
 <div class="container" id="question_block">
     <% @questions.each do |q| %>
-    <div class="card card-block bg-light">
-        <div class="media">
-            <img class="mr-3" src= <%= q.gravatar %> >
-            <div class="media-body">
-                <h5 class="mt-0"><%= q.email %> asked:</h5>
-                <div><%= time_ago_in_words q.created_at %> ago</div>
-                <%= q.body %>
+        <div class="question-list">
+            <div class="card card-block">
+                <div class="media">
+                    <img class="mr-3" src= <%= q.gravatar %> >
+                    <div class="media-body">
+                        <h5 class="mt-0"><%= q.email %> asked:</h5>
+                        <div class="time"><%= time_ago_in_words q.created_at %> ago</div>
+                        <%= q.body %>
+                    </div>
+                </div>
+                <div>
+                    <a href="<%= question_path(q) %>" class="btn btn-success btn-xs">View answers</a>
+                </div>
             </div>
         </div>
-        <div>
-            <a href="<%= question_path(q) %>" class="btn btn-success btn-xs float-right">View answers</a>
-        </div>
-    </div>
+    <% end %>
+    <% if @questions.empty? %>
+        <div class="alert alert-info" role="alert">Nothing here yet, be the first to ask?</div>
     <% end %>
 </div>
 

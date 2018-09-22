@@ -1,3 +1,37 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.question-list{
+    .card.card-block {
+        border: thin solid #ddd;
+        border-radius: 10px;
+        padding: 0.8em;
+        margin: 0.3em;
+        background-color: #eee;
+        position: relative;
+        .time {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            color: #666;
+        }
+        a.btn.btn-success.btn-xs {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+        }
+        .time {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        color: #666;
+        }
+        &:hover {
+            cursor: pointer;
+            background-color: #ddd;
+        }
+    }
+    
+    
+}
+

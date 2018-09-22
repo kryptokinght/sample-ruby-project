@@ -19,14 +19,19 @@
     <%= render 'layouts/new_answer_form' %>
 
     <%= @answers.each do |answer| %>
-    <div class="media">
-        <img class="mr-3" src="<%= answer.gravatar %>" alt="">
-        <div class="media-body">
-            <h5 class="mt-0"><%= answer.email %> answered:</h5>
-            <div><%= time_ago_in_words answer.created_at %> ago</div>
-            <%= answer.body %>
+        <div class="card card-block bg-light">
+            <div class="media">
+                <img class="mr-3" src="<%= answer.gravatar %>" alt="">
+                <div class="media-body">
+                    <h5 class="mt-0"><%= answer.email %> answered:</h5>
+                    <div class="time"><%= time_ago_in_words answer.created_at %> ago</div>
+                    <%= answer.body %>
+                </div>
+            </div>
         </div>
-    </div>
+    <% end %>
+    <% if @answers.empty? %>
+        <div class="alert alert-info" role="alert">No answers posted yet!</div>
     <% end %>
 </div>
 
